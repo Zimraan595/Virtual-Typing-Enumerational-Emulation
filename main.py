@@ -11,7 +11,7 @@ def get_cb_data():
 
 keyboard = Controller()
 
-def type_with_varying_speed(text, min_delay=0.05, max_delay=0.2, error_chance=0.05, speed=1, max_speed=False):
+def type_with_varying_speed(text, min_delay=0.05, max_delay=0.2, error_chance=0.05, speed=1.0, max_speed=False):
     if speed == 0:
         print("Speed can not be zero")
         return
@@ -73,7 +73,7 @@ def start_up_protocol():
         while loop:
             try:
                 print("Note: speed is a multiplier so 1 is normal and 5 means 5x speed while 0.5 would be half normal speed")
-                speed = int(input("speed: "))
+                speed = float(input("speed: "))
                 formated_dict["speed"] = str(speed)
                 loop = False
             except ValueError:
@@ -98,7 +98,7 @@ def on_hotkey_pressed():
         time.sleep(0.1)
     msg = get_cb_data()
     print(f"typing text: {msg}")
-    type_with_varying_speed(msg, speed=int(formated_dict["speed"]))
+    type_with_varying_speed(msg, speed=float(formated_dict["speed"]))
 
 k.add_hotkey("ctrl+q", callback=on_hotkey_pressed)
 k.wait()
