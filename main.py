@@ -22,6 +22,9 @@ def type_with_varying_speed(text, min_delay=0.05, max_delay=0.2, error_chance=0.
         min_delay /= speed
         max_delay /= speed
     for char in text:
+        while k.is_pressed("ctrl") or k.is_pressed("shift") or k.is_pressed("alt"):
+            time.sleep(0.1)
+
         delay = random.uniform(min_delay, max_delay)
         time.sleep(delay)
 
@@ -33,6 +36,10 @@ def type_with_varying_speed(text, min_delay=0.05, max_delay=0.2, error_chance=0.
             time.sleep(0.05)
 
         keyboard.type(char)
+
+        if k.is_pressed("ctrl+shift+q"):
+            return None
+
 
 def start_up_protocol():
     settings_path = "settings.txt"
