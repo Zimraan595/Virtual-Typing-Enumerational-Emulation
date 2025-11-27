@@ -44,22 +44,9 @@ def type_with_varying_speed(text, min_delay=0.05, max_delay=0.2, error_chance=0.
 def start_up_protocol():
     settings_path = "settings.txt"
 
-    defult_set = {
+    formated_dict = {
         "speed": "1"
     }
-    formated_dict = {}
-    with open(settings_path, "a"):
-        file = open(settings_path, "r")
-        settings = file.read().split("\n")
-        for i in settings:
-            try:
-                setting = i.split(":")
-                formated_dict[setting[0]] = setting[1]
-            except Exception:
-                pass
-
-    defult_set.update(formated_dict)
-    formated_dict = defult_set
 
     print("This program types text that you have copied when you press ctrl + q")
     answer = ""
@@ -85,15 +72,6 @@ def start_up_protocol():
                 loop = False
             except ValueError:
                 print("make sure to enter a number")
-
-    saved_list = []
-    for i in formated_dict:
-        saved_list.append(f"{i}:{formated_dict[i]}")
-
-    saved_text = "\n".join(saved_list)
-
-    file = open(settings_path, "w")
-    file.write(saved_text)
 
     return formated_dict
 
