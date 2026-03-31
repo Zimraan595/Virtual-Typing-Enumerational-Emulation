@@ -16,8 +16,8 @@ That's it — no installation required.
 
 ## How to Use It
 
-1. Copy any text to your clipboard like you normally would (`Ctrl+C`).
-2. Open re-type by double-clicking the `.exe`.
+1. Open re-type by double-clicking the `.exe`.
+2. Copy any text to your clipboard like you normally would (`Ctrl+C`).
 3. Click into whatever text field or document you want the text typed into.
 4. Press `Ctrl+Q` to start typing.
 
